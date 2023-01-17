@@ -14,10 +14,11 @@ div {
 }
 
 #container {
-    /* max-width: 600px;
-    margin: 0 auto; */
+    max-width: 250px;
+   /* margin: 0 auto; */
     background-color: black;
     border: 2px red solid;
+    flex: 2;
 }
 
 #container > div { /* versus #container div, which is inherited by all divs, ie. grandchildren */
