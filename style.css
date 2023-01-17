@@ -1,3 +1,63 @@
 * {
-    background-color: black;
+    box-sizing: border-box;
 }
+
+body {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+div {
+    margin: 10px;
+    border: black 1px dashed;
+}
+
+#container {
+    /* max-width: 600px;
+    margin: 0 auto; */
+    background-color: black;
+    border: 2px red solid;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    /* justify-content: center; */
+    gap: 10px;
+
+}
+/* SCREEN */
+#screen {
+    background-color: black;
+    padding: 10px;
+    text-align: end;
+}
+/* BUTTONS */
+.row div {
+    flex: 1;
+    padding: 10px;
+    margin: 0;
+    border-radius: 15px;
+
+}
+
+.number-btn {
+    background-color: grey;
+}
+
+.operator-btn {
+    background-color: orange;
+}
+
+#ac-btn, #plus-minus-btn, #percent-btn {
+    background-color: lightgray;
+    color: black;
+}
+
+#zero-btn { 
+    flex: 4; 
+    /* margin-right: auto; */
+}
+
+
