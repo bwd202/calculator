@@ -25,8 +25,21 @@ const operate = function (operator, a, b) {
 
 let screen = document.getElementById("screen");
 
-const allClear = function () {
+const allClear = function (e) {
+  // console.log(e);
   screen.innerHTML = "<span>&nbsp;</span>";
 };
 
+let acBtn = document
+  .querySelector("#ac-btn")
+  .addEventListener("click", allClear);
+
 const plusMinus = function () {};
+
+/* BUTTONS */
+function onClick(e) {
+  console.log(e.target.innerText);
+}
+let buttons = document
+  .querySelectorAll(".row div")
+  .forEach((btn) => btn.addEventListener("click", onClick));
