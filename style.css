@@ -7,6 +7,7 @@ body {
     justify-content: center;
     color: white;
     font: 20px sans-serif;
+    margin-top: 130px;
 }
 
 div {
@@ -14,11 +15,10 @@ div {
 }
 
 #container {
-    max-width: 250px;
-   /* margin: 0 auto; */
     background-color: black;
     border: 2px red solid;
-    flex: 2;
+    max-width: fit-content;
+    max-height: fit-content;
 }
 
 #container > div { /* versus #container div, which is inherited by all divs, ie. grandchildren */
@@ -35,19 +35,22 @@ div {
 /* SCREEN */
 #screen {
     background-color: black;
-    padding: 20px 15px 10px 10px;
+    padding: 40px 15px 10px 10px;
     text-align: end;
-    font-size: 50px;
+    font-size: 60px;
 }
 /* BUTTONS */
 
 .row div {
-    width: 40px; /* to make btn shape uniform */
-    flex: 1;
+    width: 50px;
+    height: 50px;
     padding: 10px;
     margin: 0;
-    border-radius: 20px;
-    text-align: center;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
 }
 
 #first-row {
@@ -67,17 +70,16 @@ div {
     color: black;
 }
 
-#ac-btn {
-    /* text alignment tweaks */
-    padding-right: 15px;
-    padding-left: 8px; 
+#plus-minus-btn {
+    padding-left: 12px;
 }
 
 #zero-btn { 
-    flex: 3.5; /* tweaked to improve buttons alignment */
+    flex: 3; /* tweak to improve buttons alignment */
+    padding-left: 20px;
+    display: flex;
+    justify-content: left;
     /* margin-right: auto; */
-    text-align: left;
-    padding-left: 15px;
 }
 
 
