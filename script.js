@@ -23,18 +23,17 @@ const operate = function (operator, a, b) {
   return operator(a, b);
 };
 
-let screen = document.getElementById("screen");
-
 const allClear = function (e) {
   // console.log(e);
   screen.innerHTML = "<span>&nbsp;</span>";
 };
 
-let acBtn = document
-  .querySelector("#ac-btn")
-  .addEventListener("click", allClear);
-
 const plusMinus = function () {};
+
+/* SCREEN */
+let screen = document.getElementById("screen");
+
+let page = document.addEventListener("keypress", (e) => console.log(e.type));
 
 /* BUTTONS */
 function onClick(e) {
@@ -43,3 +42,7 @@ function onClick(e) {
 let buttons = document
   .querySelectorAll(".row div")
   .forEach((btn) => btn.addEventListener("click", onClick));
+
+let acBtn = document
+  .querySelector("#ac-btn")
+  .addEventListener("click", allClear);
