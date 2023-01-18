@@ -26,7 +26,7 @@ const operate = function (operator, a, b) {
 let screen = document.getElementById("screen");
 
 const allClear = function () {
-  screen.textContent = "";
+  screen.innerHTML = "<span>&nbsp;</span>";
 };
 
 const plusMinus = function () {};
