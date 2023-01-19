@@ -1,3 +1,4 @@
+/* OPERATIONS */
 const add = function (a, b) {
   return a + b;
 };
@@ -28,18 +29,21 @@ const allClear = function (e) {
   screen.innerHTML = "<span>&nbsp;</span>";
 };
 
-const plusMinus = function () {};
+const plusMinus = function (a) {
+  return -a;
+};
 
 /* SCREEN */
 let screen = document.getElementById("screen");
 
 let keyLogger = document.addEventListener("keypress", (e) => {
-  console.log(e.key);
+  //   console.log(e.key);
+  screen.innerText += e.key;
 });
 
 /* BUTTONS */
 function onClick(e) {
-  console.log(e.target.innerText);
+  screen.innerText += e.target.innerText;
 }
 let buttons = document
   .querySelectorAll(".row div")
