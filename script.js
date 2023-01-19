@@ -33,7 +33,9 @@ const plusMinus = function () {};
 /* SCREEN */
 let screen = document.getElementById("screen");
 
-let page = document.addEventListener("keypress", (e) => console.log(e.type));
+let keyLogger = document.addEventListener("keypress", (e) => {
+  console.log(e.key);
+});
 
 /* BUTTONS */
 function onClick(e) {
