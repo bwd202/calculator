@@ -20,21 +20,23 @@ const calculator = {
 };
 
 // console.log(calculator.function.percent(25, 200));
+const display = document.getElementById("display");
+const screen = document.getElementById("screen");
+
+const displayValue = function (e) {
+  let value = document.createTextNode(`${e.target.innerText}`);
+
+  screen.appendChild(value);
+};
+
 const clearScreen = function () {
-  display.innerText = "0";
+  screen.innerHTML = "<span>" + 0 + "</span>";
 };
 
 const acBtn = document
   .getElementById("ac-btn")
   .addEventListener("click", clearScreen);
 
-const display = document.getElementById("display");
-let displayValue = 0;
-
-const consoleLog = function (e) {
-  display.innerText += e.target.innerText;
-};
-
 const numberBtn = document.querySelectorAll(".number-btn").forEach((btn) => {
-  btn.addEventListener("click", consoleLog);
+  btn.addEventListener("click", displayValue);
 });
