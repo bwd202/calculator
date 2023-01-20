@@ -36,13 +36,9 @@ const displayValue = function (e) {
 };
 
 const clearScreen = function () {
-  //   console.log(screen.firstChild);
-  if (screen.hasChildNodes()) {
-    for (let child in screen.childNodes) {
-      screen.removeChild(screen.childNodes[child]);
-    }
-  }
+  screen.innerText = "0";
 };
+
 const acBtn = document
   .getElementById("ac-btn")
   .addEventListener("click", clearScreen);
