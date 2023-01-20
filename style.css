@@ -38,7 +38,7 @@ div {
     padding: 40px 15px 10px 10px;
     text-align: end;
     font-size: 60px;
-    height: 119px;
+    height: 119px; /* prevents div collapse */
 }
 /* BUTTONS */
 
