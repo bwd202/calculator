@@ -20,19 +20,29 @@ const calculator = {
 };
 
 // console.log(calculator.function.percent(25, 200));
-const display = document.getElementById("display");
+// const display = document.getElementById("display");
 const screen = document.getElementById("screen");
 
+const zero = document.getElementById("screen").childNodes[0]; //because children[0] does not pick up text nodes
+
 const displayValue = function (e) {
+  //removes leading zero
+  if (screen.firstChild.nodeValue == 0) {
+    screen.removeChild(screen.firstChild);
+  }
   let value = document.createTextNode(`${e.target.innerText}`);
 
   screen.appendChild(value);
 };
 
 const clearScreen = function () {
-  screen.innerHTML = "<span>" + 0 + "</span>";
+  //   console.log(screen.firstChild);
+  if (screen.hasChildNodes()) {
+    for (let child in screen.childNodes) {
+      screen.removeChild(screen.childNodes[child]);
+    }
+  }
 };
-
 const acBtn = document
   .getElementById("ac-btn")
   .addEventListener("click", clearScreen);
