@@ -23,6 +23,8 @@ const calculator = {
 // const display = document.getElementById("display");
 const screen = document.getElementById("screen");
 
+let lastNum = 0;
+
 const zero = document.getElementById("screen").childNodes[0]; //because children[0] does not pick up text nodes
 
 const displayValue = function (e) {
@@ -33,11 +35,14 @@ const displayValue = function (e) {
 
   screen.appendChild(document.createTextNode(`${e.target.textContent}`));
 
-  return console.log(screen.textContent);
+  //   console.log(screen.textContent);
+
+  lastNum += screen.textContent;
 };
 
 const clearScreen = function () {
   screen.textContent = 0;
+  console.log(screen.textContent);
 };
 
 const acBtn = document
@@ -47,6 +52,3 @@ const acBtn = document
 const numberBtn = document.querySelectorAll(".number-btn").forEach((btn) => {
   btn.addEventListener("click", displayValue);
 });
-
-//BREATHROUGH!!
-let lastNum = screen.textContent;
