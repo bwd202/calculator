@@ -30,13 +30,14 @@ const displayValue = function (e) {
   if (screen.firstChild.nodeValue == 0) {
     screen.removeChild(screen.firstChild);
   }
-  let value = document.createTextNode(`${e.target.innerText}`);
 
-  screen.appendChild(value);
+  screen.appendChild(document.createTextNode(`${e.target.textContent}`));
+
+  return console.log(screen.textContent);
 };
 
 const clearScreen = function () {
-  screen.innerText = "0";
+  screen.textContent = 0;
 };
 
 const acBtn = document
@@ -46,3 +47,6 @@ const acBtn = document
 const numberBtn = document.querySelectorAll(".number-btn").forEach((btn) => {
   btn.addEventListener("click", displayValue);
 });
+
+//BREATHROUGH!!
+let lastNum = screen.textContent;
