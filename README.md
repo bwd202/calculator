@@ -22,8 +22,6 @@ Pressing the equal button will trigger the operation previously selected on the 
 
 \*there are two sets of numbers: the one before the operation button is pressed, and the number after.
 
-ISSUES
+BUGS
 
-- the div for the screen collapses when the screen is cleared (as when pressing the AC button)
-- how to store the numbers
-- how to run the operate function
+- screen is not responsive to bigger numbers (can only fit 7)
