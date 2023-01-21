@@ -17,8 +17,7 @@ div {
 #container {
     background-color: black;
     border: 2px red solid;
-    max-width: fit-content;
-    max-height: fit-content;
+    max-width: 250px; /* container won't get bigger than this if you keep adding numbers to the screen  */
 }
 
 #container > div { /* versus #container div, which is inherited by all divs, ie. grandchildren */
