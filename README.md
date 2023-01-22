@@ -25,3 +25,7 @@ Pressing the equal button will trigger the operation previously selected on the 
 BUGS
 
 - screen is not responsive to bigger numbers (can only fit 7)
+
+SUGGESTIONS
+
+- add button highlight, esp for operations
