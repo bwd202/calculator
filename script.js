@@ -41,8 +41,8 @@ const displayValue = function (e) {
 };
 
 const clearScreen = function () {
+  // console.log(screen.textContent);
   screen.textContent = 0;
-  console.log(screen.textContent);
 };
 
 const acBtn = document
