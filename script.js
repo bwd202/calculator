@@ -44,20 +44,32 @@ const acBtn = document
   .getElementById("ac-btn")
   .addEventListener("click", clearScreen);
 
-const numberBtn = document.querySelectorAll(".number-btn").forEach((btn) => {
+let numberBtn = document.querySelectorAll(".number-btn").forEach((btn) => {
   btn.addEventListener("click", displayValue);
 });
 
-//this saves the input
-
+//saves display value
 const lastVal = function () {
-  console.log(screen.textContent);
+  //   console.log(screen.textContent);
   return screen.textContent;
 };
 
-//pressing an operator saves the current value, clears screen upon entering a new digit
+//saves operator
+const whichOperator = function (e) {
+  //   console.log(e.target.textContent);
+  return e.target.textContent;
+};
+
+const removeHandler = function () {
+  document
+    .querySelectorAll(".number-btn")
+    .forEach((btn) => btn.removeEventListener("click", displayValue));
+};
+
 const operatorBtn = document
   .querySelectorAll(".operator-btn")
   .forEach((btn) => {
     btn.addEventListener("click", lastVal);
+    btn.addEventListener("click", whichOperator);
+    btn.addEventListener("click", removeHandler);
   });
