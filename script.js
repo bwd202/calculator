@@ -1,24 +1,3 @@
-//OPERATIONS
-
-function add(a, b) {
-  return a + b;
-}
-
-function subtract(a, b) {
-  return a - b;
-}
-function multiply(a, b) {
-  return a * b;
-}
-function divide(a, b) {
-  return a / b;
-}
-function percent(a, b) {
-  return (a / 100) * b;
-}
-
-// console.log(calculator.function.percent(25, 200));
-
 /* SCREEN */
 
 const screen = document.getElementById("screen");
@@ -54,6 +33,8 @@ const lastVal = function () {
   return screen.textContent;
 };
 
+/* OPERATORS */
+
 //saves operator
 const whichOperator = function (e) {
   //   console.log(e.target.textContent);
@@ -73,3 +54,20 @@ const operatorBtn = document
     btn.addEventListener("click", whichOperator);
     btn.addEventListener("click", removeHandler);
   });
+
+function add(a, b) {
+  return a + b;
+}
+
+function subtract(a, b) {
+  return a - b;
+}
+function multiply(a, b) {
+  return a * b;
+}
+function divide(a, b) {
+  return a / b;
+}
+function percent(a, b) {
+  return (a / 100) * b;
+}
