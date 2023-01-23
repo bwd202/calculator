@@ -1,49 +1,44 @@
-const calculator = {
-  value: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-  function: {
-    add(a, b) {
-      return a + b;
-    },
-    subtract(a, b) {
-      return a - b;
-    },
-    multiply(a, b) {
-      return a * b;
-    },
-    divide(a, b) {
-      return a / b;
-    },
-    percent(a, b) {
-      return (a / 100) * b;
-    },
-  },
-};
+//OPERATIONS
+
+function add(a, b) {
+  return a + b;
+}
+
+function subtract(a, b) {
+  return a - b;
+}
+function multiply(a, b) {
+  return a * b;
+}
+function divide(a, b) {
+  return a / b;
+}
+function percent(a, b) {
+  return (a / 100) * b;
+}
 
 // console.log(calculator.function.percent(25, 200));
-// const display = document.getElementById("display");
+
+/* SCREEN */
+
 const screen = document.getElementById("screen");
-
-let lastNum = 0;
-
-const zero = document.getElementById("screen").childNodes[0]; //because children[0] does not pick up text nodes
 
 const displayValue = function (e) {
   //removes leading zero
   if (screen.firstChild.nodeValue == 0) {
     screen.removeChild(screen.firstChild);
   }
-
   screen.appendChild(document.createTextNode(`${e.target.textContent}`));
 
-  //   console.log(screen.textContent);
-
-  lastNum += screen.textContent;
+  // console.log(screen.textContent);
 };
 
 const clearScreen = function () {
   // console.log(screen.textContent);
   screen.textContent = 0;
 };
+
+/* BUTTONS */
 
 const acBtn = document
   .getElementById("ac-btn")
@@ -52,3 +47,17 @@ const acBtn = document
 const numberBtn = document.querySelectorAll(".number-btn").forEach((btn) => {
   btn.addEventListener("click", displayValue);
 });
+
+//this saves the input
+
+const lastVal = function () {
+  console.log(screen.textContent);
+  return screen.textContent;
+};
+
+//pressing an operator saves the current value, clears screen upon entering a new digit
+const operatorBtn = document
+  .querySelectorAll(".operator-btn")
+  .forEach((btn) => {
+    btn.addEventListener("click", lastVal);
+  });
