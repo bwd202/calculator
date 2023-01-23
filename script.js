@@ -71,3 +71,7 @@ function divide(a, b) {
 function percent(a, b) {
   return (a / 100) * b;
 }
+
+/* I need to create a fn that will check if an operator has been called and then allow number input again */
+
+const operate = function (op, num1, num2) {};
