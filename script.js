@@ -47,12 +47,24 @@ const removeHandler = function () {
     .forEach((btn) => btn.removeEventListener("click", displayValue));
 };
 
+//tracks if fn is called
+const trackFn = (function () {
+  let called = false;
+  return function () {
+    if (!called) {
+      console.log("called");
+      called = true;
+    }
+  };
+})();
+
 const operatorBtn = document
   .querySelectorAll(".operator-btn")
   .forEach((btn) => {
     btn.addEventListener("click", lastVal);
     btn.addEventListener("click", whichOperator);
     btn.addEventListener("click", removeHandler);
+    btn.addEventListener("click", trackFn);
   });
 
 function add(a, b) {
