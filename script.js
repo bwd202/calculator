@@ -32,6 +32,10 @@ numBtn.forEach((num) => num.addEventListener("click", dispTxt));
 function dispTxt(e) {
   //   console.log(e.target.textContent);
 
+  //if op btn has been pressed then run this script
+  if (op) {
+    // console.log("hello");
+  }
   //removes leading zero
   if (screen.firstChild.nodeValue == 0) {
     screen.removeChild(screen.firstChild);
@@ -55,3 +59,6 @@ const clearScreen = function () {
 const acBtn = document
   .getElementById("ac-btn")
   .addEventListener("click", clearScreen);
+
+//save num2 (add this to the num-btn click event)
+function num2() {}
