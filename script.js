@@ -23,19 +23,24 @@ function op(e) {
   //   console.log(e.target.textContent);
 }
 
+//saves display value
+function num1() {
+  console.log(screen.textContent);
+  //   return screen.textContent;
+}
+
 let screen = document.getElementById("screen");
 
 let numBtn = document.querySelectorAll(".number-btn");
 
-numBtn.forEach((num) => num.addEventListener("click", dispTxt));
+numBtn.forEach((num) => {
+  num.addEventListener("click", dispTxt);
+  num.addEventListener("click", num2Fn);
+});
 
 function dispTxt(e) {
   //   console.log(e.target.textContent);
 
-  //if op btn has been pressed then run this script
-  if (op) {
-    // console.log("hello");
-  }
   //removes leading zero
   if (screen.firstChild.nodeValue == 0) {
     screen.removeChild(screen.firstChild);
@@ -44,10 +49,13 @@ function dispTxt(e) {
   screen.appendChild(document.createTextNode(e.target.textContent));
 }
 
-//saves display value
-function num1() {
-  console.log(screen.textContent);
-  //   return screen.textContent;
+//attempts to save second num on the screen
+function num2Fn(e) {
+  //   console.log("1");
+
+  if (op) {
+    screen.appendChild(document.createTextNode(e.target.textContent));
+  }
 }
 
 //clear screen
