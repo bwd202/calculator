@@ -20,7 +20,7 @@ opBtn.forEach((btn) => {
 });
 
 function op(e) {
-  console.log(e.target.textContent);
+  //   console.log(e.target.textContent);
 }
 
 let screen = document.getElementById("screen");
@@ -31,6 +31,11 @@ numBtn.forEach((num) => num.addEventListener("click", dispTxt));
 
 function dispTxt(e) {
   //   console.log(e.target.textContent);
+
+  //removes leading zero
+  if (screen.firstChild.nodeValue == 0) {
+    screen.removeChild(screen.firstChild);
+  }
 
   screen.appendChild(document.createTextNode(e.target.textContent));
 }
