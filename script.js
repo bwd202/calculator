@@ -1,89 +1,42 @@
-/* SCREEN */
+// window.addEventListener("click", operate);
 
-const screen = document.getElementById("screen");
+// function operate(op, num1, num2) {
+//   //add EventListener to op-btn
 
-const displayValue = function (e) {
-  //removes leading zero
-  if (screen.firstChild.nodeValue == 0) {
-    screen.removeChild(screen.firstChild);
-  }
-  screen.appendChild(document.createTextNode(`${e.target.textContent}`));
+//   const opFn = function (e) {
+//     console.log(e.target.textContent);
 
-  // console.log(screen.textContent);
-};
+//     let opBtn = document
+//       .querySelectorAll(".operator-btn")
+//       .forEach((btn) => btn.addEventListener("click", opFn));
+//   };
+// }
 
-const clearScreen = function () {
-  // console.log(screen.textContent);
-  screen.textContent = 0;
-};
+let opBtn = document.querySelectorAll(".operator-btn");
 
-/* BUTTONS */
-
-const acBtn = document
-  .getElementById("ac-btn")
-  .addEventListener("click", clearScreen);
-
-let numberBtn = document.querySelectorAll(".number-btn").forEach((btn) => {
-  btn.addEventListener("click", displayValue);
+opBtn.forEach((btn) => {
+  btn.addEventListener("click", op);
+  btn.addEventListener("click", num1);
 });
 
-//saves display value
-const lastVal = function () {
-  //   console.log(screen.textContent);
-  return screen.textContent;
-};
+function op(e) {
+  console.log(e.target.textContent);
+}
 
-/* OPERATORS */
+let screen = document.getElementById("screen");
 
-//saves operator
-const whichOperator = function (e) {
+let numBtn = document.querySelectorAll(".number-btn");
+
+numBtn.forEach((num) => num.addEventListener("click", dispTxt));
+
+function dispTxt(e) {
   //   console.log(e.target.textContent);
-  return e.target.textContent;
-};
 
-const removeHandler = function () {
-  document
-    .querySelectorAll(".number-btn")
-    .forEach((btn) => btn.removeEventListener("click", displayValue));
-};
-
-//tracks if fn is called
-const trackFn = (function () {
-  let called = false;
-  return function () {
-    if (!called) {
-      console.log("called");
-      called = true;
-    }
-  };
-})();
-
-const operatorBtn = document
-  .querySelectorAll(".operator-btn")
-  .forEach((btn) => {
-    btn.addEventListener("click", lastVal);
-    btn.addEventListener("click", whichOperator);
-    btn.addEventListener("click", removeHandler);
-    btn.addEventListener("click", trackFn);
-  });
-
-function add(a, b) {
-  return a + b;
+  screen.appendChild(document.createTextNode(e.target.textContent));
 }
 
-function subtract(a, b) {
-  return a - b;
+//saves display value
+function num1() {
+  console.log(screen.textContent);
+  //   return screen.textContent;
 }
-function multiply(a, b) {
-  return a * b;
-}
-function divide(a, b) {
-  return a / b;
-}
-function percent(a, b) {
-  return (a / 100) * b;
-}
-
-/* I need to create a fn that will check if an operator has been called and then allow number input again */
-
-const operate = function (op, num1, num2) {};
