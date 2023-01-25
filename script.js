@@ -40,3 +40,13 @@ function num1() {
   console.log(screen.textContent);
   //   return screen.textContent;
 }
+
+//clear screen
+const clearScreen = function () {
+  // console.log(screen.textContent);
+  screen.textContent = 0;
+};
+
+const acBtn = document
+  .getElementById("ac-btn")
+  .addEventListener("click", clearScreen);
