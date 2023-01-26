@@ -8,12 +8,14 @@ const numBtn = document.querySelectorAll(".number-btn");
 numBtn.forEach((btn) => btn.addEventListener("click", getNum));
 
 function getNum(e) {
-  console.log(e.target.textContent);
+  //   console.log(e.target.textContent);
   num1.push(e.target.textContent);
+
   if (screen.firstChild.textContent == 0) {
     screen.removeChild(screen.firstChild);
   }
-  screen.appendChild(document.createTextNode(e.target.textContent));
+  //   screen.appendChild(document.createTextNode(e.target.textContent));
+  screen.textContent = num1.join("");
 }
 
 const clearScreen = function () {
@@ -24,3 +26,25 @@ const clearScreen = function () {
 const acBtn = document
   .getElementById("ac-btn")
   .addEventListener("click", clearScreen);
+
+const opBtn = document.querySelectorAll(".operator-btn");
+
+opBtn.forEach((btn) => {
+  btn.addEventListener("click", getOp);
+});
+
+function getOp(e) {
+  console.log(e.target.textContent);
+  numBtn.forEach((btn) => btn.removeEventListener("click", getNum));
+  numBtn.forEach((btn) => btn.addEventListener("click", getNum2));
+}
+
+function getNum2(e) {
+  //   console.log(e.target.textContent);
+
+  num2.push(e.target.textContent);
+
+  screen.textContent = num2.join("");
+
+  //   screen.appendChild(document.createTextNode(e.target.textContent));
+}
