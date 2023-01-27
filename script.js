@@ -1,6 +1,8 @@
 let temp = [];
 let num1 = [];
 let num2 = [];
+let op = "";
+
 const screen = document.getElementById("screen");
 
 const numBtn = document.querySelectorAll(".number-btn");
@@ -34,7 +36,8 @@ opBtn.forEach((btn) => {
 });
 
 function getOp(e) {
-  console.log(e.target.textContent);
+  //   console.log(e.target.textContent);
+  op = e.target.textContent;
   numBtn.forEach((btn) => btn.removeEventListener("click", getNum));
   numBtn.forEach((btn) => btn.addEventListener("click", getNum2));
 }
@@ -47,4 +50,12 @@ function getNum2(e) {
   screen.textContent = num2.join("");
 
   //   screen.appendChild(document.createTextNode(e.target.textContent));
+}
+
+const equalBtn = document.getElementById("equality-btn");
+
+equalBtn.addEventListener("click", operate(op, num1, num2));
+
+function operate(op, num1, num2) {
+  console.log(op, num1, num2);
 }
