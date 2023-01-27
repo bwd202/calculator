@@ -6,7 +6,7 @@ let op = "";
 /* OPERATIONS */
 
 function add(a, b) {
-  return a + b;
+  return parseInt(a) + parseInt(b);
 }
 
 function subtract(a, b) {
@@ -81,10 +81,20 @@ function operate() {
   num1 = num1.join("");
   num2 = num2.join("");
 
-  console.log(num1, num2);
+  console.log(num1, op, num2);
 
   switch (op) {
     case "/":
       screen.textContent = divide(num1, num2);
+      break;
+    case "x":
+      screen.textContent = multiply(num1, num2);
+      break;
+    case "-":
+      screen.textContent = subtract(num1, num2);
+      break;
+    case "+":
+      screen.textContent = add(num1, num2);
+      break;
   }
 }
