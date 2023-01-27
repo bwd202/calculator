@@ -3,6 +3,25 @@ let num1 = [];
 let num2 = [];
 let op = "";
 
+/* OPERATIONS */
+
+function add(a, b) {
+  return a + b;
+}
+
+function subtract(a, b) {
+  return a - b;
+}
+function multiply(a, b) {
+  return a * b;
+}
+function divide(a, b) {
+  return a / b;
+}
+function percent(a, b) {
+  return (a / 100) * b;
+}
+
 const screen = document.getElementById("screen");
 
 const numBtn = document.querySelectorAll(".number-btn");
@@ -23,6 +42,8 @@ function getNum(e) {
 const clearScreen = function () {
   // console.log(screen.textContent);
   screen.textContent = 0;
+  num1 = [];
+  num2 = [];
 };
 
 const acBtn = document
@@ -54,8 +75,16 @@ function getNum2(e) {
 
 const equalBtn = document.getElementById("equality-btn");
 
-equalBtn.addEventListener("click", operate(op, num1, num2));
+equalBtn.addEventListener("click", operate);
 
-function operate(op, num1, num2) {
-  console.log(op, num1, num2);
+function operate() {
+  num1 = num1.join("");
+  num2 = num2.join("");
+
+  console.log(num1, num2);
+
+  switch (op) {
+    case "/":
+      screen.textContent = divide(num1, num2);
+  }
 }
