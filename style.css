@@ -61,7 +61,7 @@ div {
     background-color: grey;
 }
 
-.operator-btn {
+.operator-btn, #equality-btn {
     background-color: orange;
 }
 
