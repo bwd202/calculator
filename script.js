@@ -22,7 +22,22 @@ function percent(a, b) {
   return (a / 100) * b;
 }
 
+/* CLEAR BTN */
 const screen = document.getElementById("screen");
+
+const clearScreen = function () {
+  // console.log(screen.textContent);
+  screen.textContent = 0;
+  temp = [];
+  num1 = [];
+  num2 = [];
+};
+
+const acBtn = document
+  .getElementById("ac-btn")
+  .addEventListener("click", clearScreen);
+
+/* NUMBERS */
 
 const numBtn = document.querySelectorAll(".number-btn");
 
@@ -46,15 +61,7 @@ function getNum(e) {
   //   screen.appendChild(document.createTextNode(e.target.textContent));
 }
 
-const clearScreen = function () {
-  // console.log(screen.textContent);
-  screen.textContent = 0;
-  temp = [];
-};
-
-const acBtn = document
-  .getElementById("ac-btn")
-  .addEventListener("click", clearScreen);
+/* OPERATOR BTNS */
 
 const opBtn = document.querySelectorAll(".operator-btn");
 
@@ -65,16 +72,16 @@ opBtn.forEach((btn) => {
 function getOp(e) {
   console.log("You pressed the " + e.target.textContent + " button");
 
-  op = e.target.textContent;
-
-  num1 = temp.slice();
-
-  temp = [];
-
   //calls operate if the arrays have been initialized
-  if (num1.length > 0 && num2.length > 0) {
+  if (num1.length > 0 && temp.length > 0) {
     operate();
   }
+
+  op = e.target.textContent;
+
+  num1 = temp.slice(); // BUG??
+
+  temp = [];
 
   numBtn.forEach((btn) => btn.removeEventListener("click", getNum));
   numBtn.forEach((btn) => btn.addEventListener("click", getNum2));
@@ -109,12 +116,6 @@ equalBtn.addEventListener("click", operate);
 
 function operate() {
   num2 = temp.slice();
-
-  //   if (typeof num1 == "object" || typeof num2 == "object") {
-  //     num1 = num1.join("");
-  //     num2 = num2.join("");
-  //   }
-
   num1 = num1.join("");
   num2 = num2.join("");
 
@@ -130,8 +131,13 @@ function operate() {
       break;
     case "+":
       screen.textContent = add(num1, num2);
-      break;
   }
+
+  //   if (typeof num1 == "object" || typeof num2 == "object") {
+  //     num1 = num1.join("");
+  //     num2 = num2.join("");
+  //   }
+
   console.log("You pressed the = button");
   console.log(`${num1} ${op} ${num2} = ${screen.textContent}`);
 }
