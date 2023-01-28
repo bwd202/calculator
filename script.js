@@ -83,15 +83,22 @@ function getOp(e) {
 function getNum2(e) {
   console.log(`You pressed ${e.target.textContent}`);
 
-  if (typeof num2 == "string") {
-    num2 = [];
-    num2.push(e.target.textContent);
-  } else if (typeof num2 == "object") {
-    num2.push(e.target.textContent);
-    console.log(num2);
+  temp.push(e.target.textContent);
 
-    screen.textContent = num2.join("");
-  }
+  console.log(temp);
+
+  //show num on the screen
+  screen.textContent = temp.join("");
+
+  //   if (typeof num2 == "string") {
+  //     num2 = [];
+  //     num2.push(e.target.textContent);
+  //   } else if (typeof num2 == "object") {
+  //     num2.push(e.target.textContent);
+  //     console.log(num2);
+
+  //     screen.textContent = num2.join("");
+  //   }
 
   //   screen.appendChild(document.createTextNode(e.target.textContent));
 }
@@ -101,10 +108,16 @@ const equalBtn = document.getElementById("equality-btn");
 equalBtn.addEventListener("click", operate);
 
 function operate() {
-  if (typeof num1 == "object" || typeof num2 == "object") {
-    num1 = num1.join("");
-    num2 = num2.join("");
-  }
+  num2 = temp.slice();
+
+  //   if (typeof num1 == "object" || typeof num2 == "object") {
+  //     num1 = num1.join("");
+  //     num2 = num2.join("");
+  //   }
+
+  num1 = num1.join("");
+  num2 = num2.join("");
+
   switch (op) {
     case "/":
       screen.textContent = divide(num1, num2);
@@ -120,5 +133,5 @@ function operate() {
       break;
   }
   console.log("You pressed the = button");
-  console.log(`${num1} + ${num2} = ${screen.textContent}`);
+  console.log(`${num1} ${op} ${num2} = ${screen.textContent}`);
 }
