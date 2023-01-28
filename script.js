@@ -29,12 +29,14 @@ const numBtn = document.querySelectorAll(".number-btn");
 numBtn.forEach((btn) => btn.addEventListener("click", getNum));
 
 function getNum(e) {
-  //   console.log(e.target.textContent);
+  console.log(`Push ${e.target.textContent} to num1`);
+
   if (num1.length < 11) {
     if (screen.firstChild.textContent == 0) {
       screen.removeChild(screen.firstChild);
     }
     num1.push(e.target.textContent);
+    console.log("num1 = " + num1);
 
     screen.textContent = num1.join("");
   }
@@ -60,38 +62,29 @@ opBtn.forEach((btn) => {
 });
 
 function getOp(e) {
-  //   console.log(e.target.textContent);
-  let called = false;
+  console.log("Press " + e.target.textContent + " button");
 
-  if (called) {
-    numBtn.forEach((btn) => btn.removeEventListener("click", getNum2));
-    numBtn.forEach((btn) => btn.addEventListener("click", getTemp));
+  if (num1.length > 0 && num2.length > 0) {
+    operate();
   }
 
   op = e.target.textContent;
+
   numBtn.forEach((btn) => btn.removeEventListener("click", getNum));
   numBtn.forEach((btn) => btn.addEventListener("click", getNum2));
-
-  return function () {
-    if (!called) {
-      console.log("hello");
-      called = true;
-    }
-  };
-}
-
-function getTemp(e) {
-  console.log("hello again");
 }
 
 function getNum2(e) {
-  //   console.log(e.target.textContent);
+  console.log(`Push ${e.target.textContent} to num2`);
 
-  if (!num2) {
+  if (typeof num2 == "string") {
+    num2 = [];
     num2.push(e.target.textContent);
+  } else if (typeof num2 == "object") {
+    num2.push(e.target.textContent);
+    console.log("num2 = " + num2);
+
     screen.textContent = num2.join("");
-  } else if (num2) {
-    temp.push(e.target.textContent);
   }
 
   //   screen.appendChild(document.createTextNode(e.target.textContent));
@@ -102,10 +95,10 @@ const equalBtn = document.getElementById("equality-btn");
 equalBtn.addEventListener("click", operate);
 
 function operate() {
-  //   console.log(num1, op, num2);
-
-  num1 = num1.join("");
-  num2 = num2.join("");
+  if (typeof num1 == "object" || typeof num2 == "object") {
+    num1 = num1.join("");
+    num2 = num2.join("");
+  }
   switch (op) {
     case "/":
       screen.textContent = divide(num1, num2);
@@ -120,4 +113,5 @@ function operate() {
       screen.textContent = add(num1, num2);
       break;
   }
+  console.log(num1 + op + num2 + " = " + screen.textContent);
 }
