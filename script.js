@@ -30,13 +30,16 @@ numBtn.forEach((btn) => btn.addEventListener("click", getNum));
 
 function getNum(e) {
   //   console.log(e.target.textContent);
-  num1.push(e.target.textContent);
+  if (num1.length < 11) {
+    if (screen.firstChild.textContent == 0) {
+      screen.removeChild(screen.firstChild);
+    }
+    num1.push(e.target.textContent);
 
-  if (screen.firstChild.textContent == 0) {
-    screen.removeChild(screen.firstChild);
+    screen.textContent = num1.join("");
   }
+
   //   screen.appendChild(document.createTextNode(e.target.textContent));
-  screen.textContent = num1.join("");
 }
 
 const clearScreen = function () {
@@ -58,17 +61,38 @@ opBtn.forEach((btn) => {
 
 function getOp(e) {
   //   console.log(e.target.textContent);
+  let called = false;
+
+  if (called) {
+    numBtn.forEach((btn) => btn.removeEventListener("click", getNum2));
+    numBtn.forEach((btn) => btn.addEventListener("click", getTemp));
+  }
+
   op = e.target.textContent;
   numBtn.forEach((btn) => btn.removeEventListener("click", getNum));
   numBtn.forEach((btn) => btn.addEventListener("click", getNum2));
+
+  return function () {
+    if (!called) {
+      console.log("hello");
+      called = true;
+    }
+  };
+}
+
+function getTemp(e) {
+  console.log("hello again");
 }
 
 function getNum2(e) {
   //   console.log(e.target.textContent);
 
-  num2.push(e.target.textContent);
-
-  screen.textContent = num2.join("");
+  if (!num2) {
+    num2.push(e.target.textContent);
+    screen.textContent = num2.join("");
+  } else if (num2) {
+    temp.push(e.target.textContent);
+  }
 
   //   screen.appendChild(document.createTextNode(e.target.textContent));
 }
@@ -78,11 +102,10 @@ const equalBtn = document.getElementById("equality-btn");
 equalBtn.addEventListener("click", operate);
 
 function operate() {
+  //   console.log(num1, op, num2);
+
   num1 = num1.join("");
   num2 = num2.join("");
-
-  console.log(num1, op, num2);
-
   switch (op) {
     case "/":
       screen.textContent = divide(num1, num2);
