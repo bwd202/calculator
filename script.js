@@ -29,16 +29,18 @@ const numBtn = document.querySelectorAll(".number-btn");
 numBtn.forEach((btn) => btn.addEventListener("click", getNum));
 
 function getNum(e) {
-  console.log(`Push ${e.target.textContent} to num1`);
+  console.log(`You pressed ${e.target.textContent}`);
 
-  if (num1.length < 11) {
+  //no more than 10 nums on the screen; acts like a loop
+  if (temp.length < 11) {
     if (screen.firstChild.textContent == 0) {
       screen.removeChild(screen.firstChild);
     }
-    num1.push(e.target.textContent);
-    console.log("num1 = " + num1);
+    temp.push(e.target.textContent);
+    console.log(temp);
 
-    screen.textContent = num1.join("");
+    //show num on the screen
+    screen.textContent = temp.join("");
   }
 
   //   screen.appendChild(document.createTextNode(e.target.textContent));
@@ -47,8 +49,7 @@ function getNum(e) {
 const clearScreen = function () {
   // console.log(screen.textContent);
   screen.textContent = 0;
-  num1 = [];
-  num2 = [];
+  temp = [];
 };
 
 const acBtn = document
@@ -62,27 +63,32 @@ opBtn.forEach((btn) => {
 });
 
 function getOp(e) {
-  console.log("Press " + e.target.textContent + " button");
+  console.log("You pressed the " + e.target.textContent + " button");
 
+  op = e.target.textContent;
+
+  num1 = temp.slice();
+
+  temp = [];
+
+  //calls operate if the arrays have been initialized
   if (num1.length > 0 && num2.length > 0) {
     operate();
   }
-
-  op = e.target.textContent;
 
   numBtn.forEach((btn) => btn.removeEventListener("click", getNum));
   numBtn.forEach((btn) => btn.addEventListener("click", getNum2));
 }
 
 function getNum2(e) {
-  console.log(`Push ${e.target.textContent} to num2`);
+  console.log(`You pressed ${e.target.textContent}`);
 
   if (typeof num2 == "string") {
     num2 = [];
     num2.push(e.target.textContent);
   } else if (typeof num2 == "object") {
     num2.push(e.target.textContent);
-    console.log("num2 = " + num2);
+    console.log(num2);
 
     screen.textContent = num2.join("");
   }
@@ -113,5 +119,6 @@ function operate() {
       screen.textContent = add(num1, num2);
       break;
   }
-  console.log(num1 + op + num2 + " = " + screen.textContent);
+  console.log("You pressed the = button");
+  console.log(`${num1} + ${num2} = ${screen.textContent}`);
 }
