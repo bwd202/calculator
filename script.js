@@ -49,7 +49,7 @@ function getNum(e) {
   console.log(`You pressed ${e.target.textContent}`);
 
   //no more than 10 nums on the screen; acts like a loop
-  if (num1.length < 11) {
+  if (num1.length < 10) {
     if (screen.firstChild.textContent == 0) {
       screen.removeChild(screen.firstChild);
     }
@@ -128,11 +128,9 @@ function operate() {
       break;
     case "x":
       result = multiply(num1, num2);
-
       break;
     case "-":
       result = subtract(num1, num2);
-
       break;
     case "+":
       result = add(num1, num2);
