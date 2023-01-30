@@ -28,6 +28,8 @@ const screen = document.getElementById("screen");
 const clearScreen = function () {
   // console.log(screen.textContent);
   screen.textContent = 0;
+  screen.style.fontSize = "60px";
+  screen.style.paddingTop = "40px";
   temp = [];
   num1 = [];
   num2 = [];
@@ -48,8 +50,8 @@ numBtn.forEach((btn) => btn.addEventListener("click", getNum));
 function getNum(e) {
   console.log(`You pressed ${e.target.textContent}`);
 
-  //no more than 10 nums on the screen; acts like a loop
-  if (num1.length < 10) {
+  //no more than 9 nums on the screen; acts like a loop
+  if (num1.length < 9) {
     if (screen.firstChild.textContent == 0) {
       screen.removeChild(screen.firstChild);
     }
@@ -58,6 +60,11 @@ function getNum(e) {
 
     //show num on the screen
     screen.textContent = num1.join("");
+
+    if (screen.textContent.length > 6) {
+      screen.style.fontSize = "40px";
+      screen.style.paddingTop = "60px"; //keeps screen aspect ratio by compensating for decreased height
+    }
   }
 
   //   screen.appendChild(document.createTextNode(e.target.textContent));
@@ -117,40 +124,38 @@ const equalBtn = document.getElementById("equality-btn");
 equalBtn.addEventListener("click", operate);
 
 function operate() {
-  let result = "";
-  //   num2 = temp.slice();
-  num1 = num1.join("");
-  num2 = num2.join("");
+  //bug fix
+  if (screen.firstChild.textContent != 0 && num2.length > 0) {
+    let result = "";
+    //   num2 = temp.slice();
+    num1 = num1.join("");
+    num2 = num2.join("");
 
-  switch (op) {
-    case "/":
-      result = divide(num1, num2);
-      break;
-    case "x":
-      result = multiply(num1, num2);
-      break;
-    case "-":
-      result = subtract(num1, num2);
-      break;
-    case "+":
-      result = add(num1, num2);
+    switch (op) {
+      case "/":
+        result = divide(num1, num2);
+        break;
+      case "x":
+        result = multiply(num1, num2);
+        break;
+      case "-":
+        result = subtract(num1, num2);
+        break;
+      case "+":
+        result = add(num1, num2);
+    }
+    screen.textContent = result;
+
+    //saving the result of num1 and num2 in an array
+    temp = result.toString().split("");
+
+    num1 = temp;
+    num2 = [];
+
+    console.log("You pressed the = button");
+    console.log(num1);
+    console.log(num2);
+
+    return temp;
   }
-  screen.textContent = result;
-
-  //saving the result of num1 and num2 in an array
-  temp = result.toString().split("");
-
-  num1 = temp;
-  num2 = [];
-
-  console.log("You pressed the = button");
-  console.log(num1);
-  console.log(num2);
-
-  return temp;
-
-  //   if (typeof num1 == "object" || typeof num2 == "object") {
-  //     num1 = num1.join("");
-  //     num2 = num2.join("");
-  //   }
 }
