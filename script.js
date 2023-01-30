@@ -62,8 +62,9 @@ function getNum(e) {
     screen.textContent = num1.join("");
 
     if (screen.textContent.length > 6) {
-      screen.style.fontSize = "40px";
-      screen.style.paddingTop = "60px"; //keeps screen aspect ratio by compensating for decreased height
+      screen.style.fontSize = "45px";
+      screen.style.paddingTop = "57px";
+      //keeps screen aspect ratio by compensating for decreased height
     }
   }
 

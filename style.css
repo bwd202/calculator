@@ -18,6 +18,7 @@ div {
     background-color: black;
     border: 2px red solid;
     max-width: 250px; /* container won't get bigger than this if you keep adding numbers to the screen  */
+    /* max-height: 419px; */
 }
 
 #container > div { /* versus #container div, which is inherited by all divs, ie. grandchildren */
@@ -37,7 +38,7 @@ div {
     padding: 40px 15px 10px 10px; 
     text-align: end;
     font-size: 60px;
-    height: 119px; /* prevents div collapse */
+    min-height: 119px; /*prevents div collapse*/
 }
 /* BUTTONS */
 
