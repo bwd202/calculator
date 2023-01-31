@@ -8,7 +8,19 @@ let op = "";
 function add(a, b) {
   return parseInt(a) + parseInt(b);
 }
+function plusMinus() {
+  //   let value = parseInt(screen.textContent);
+  //   value *= -1;
+  //   console.log(value);
 
+  screen.insertBefore(document.createTextNode("-"), screen.firstChild);
+
+  let minus = ["-"];
+
+  if (num1.length > 0) {
+    num1 = minus.concat(num1);
+  }
+}
 function subtract(a, b) {
   return a - b;
 }
@@ -18,8 +30,8 @@ function multiply(a, b) {
 function divide(a, b) {
   return a / b;
 }
-function percent(a, b) {
-  return (a / 100) * b;
+function percent(a) {
+  return a / 100;
 }
 
 /* CLEAR BTN */
@@ -89,6 +101,10 @@ function getOp(e) {
 
   op = e.target.textContent;
 
+  if (op == "%") {
+    operate();
+  }
+
   //   num1 = temp.slice(); // BUG??
 
   //   temp = [];
@@ -126,37 +142,44 @@ equalBtn.addEventListener("click", operate);
 
 function operate() {
   //bug fix
-  if (screen.firstChild.textContent != 0 && num2.length > 0) {
-    let result = "";
-    //   num2 = temp.slice();
-    num1 = num1.join("");
-    num2 = num2.join("");
+  //   if (screen.firstChild.textContent != 0 && num2.length > 0) {
+  let result = "";
+  //   num2 = temp.slice();
+  num1 = num1.join("");
+  num2 = num2.join("");
 
-    switch (op) {
-      case "/":
-        result = divide(num1, num2);
-        break;
-      case "x":
-        result = multiply(num1, num2);
-        break;
-      case "-":
-        result = subtract(num1, num2);
-        break;
-      case "+":
-        result = add(num1, num2);
-    }
-    screen.textContent = result;
-
-    //saving the result of num1 and num2 in an array
-    temp = result.toString().split("");
-
-    num1 = temp;
-    num2 = [];
-
-    console.log("You pressed the = button");
-    console.log(num1);
-    console.log(num2);
-
-    return temp;
+  switch (op) {
+    case "/":
+      result = divide(num1, num2);
+      break;
+    case "%":
+      result = percent(num1);
+      break;
+    case "x":
+      result = multiply(num1, num2);
+      break;
+    case "-":
+      result = subtract(num1, num2);
+      break;
+    case "+":
+      result = add(num1, num2);
   }
+  screen.textContent = result;
+
+  //saving the result of num1 and num2 in an array
+  temp = result.toString().split("");
+
+  num1 = temp;
+  num2 = [];
+
+  console.log("You pressed the = button");
+  console.log(num1);
+  console.log(num2);
+
+  return temp;
 }
+// }
+
+const plusMinusBtn = document.querySelector("#plus-minus-btn");
+
+plusMinusBtn.addEventListener("click", plusMinus);
