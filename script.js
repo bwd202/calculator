@@ -8,18 +8,20 @@ let op = "";
 function add(a, b) {
   return parseInt(a) + parseInt(b);
 }
-function plusMinus() {
+function plusMinus(a) {
+  return a * -1;
+
   //   let value = parseInt(screen.textContent);
   //   value *= -1;
   //   console.log(value);
 
-  screen.insertBefore(document.createTextNode("-"), screen.firstChild);
+  //   screen.insertBefore(document.createTextNode("-"), screen.firstChild);
 
-  let minus = ["-"];
+  //   let minus = ["-"];
 
-  if (num1.length > 0) {
-    num1 = minus.concat(num1);
-  }
+  //   if (num1.length > 0) {
+  //     num1 = minus.concat(num1);
+  //   }
 }
 function subtract(a, b) {
   return a - b;
@@ -92,7 +94,7 @@ opBtn.forEach((btn) => {
 });
 
 function getOp(e) {
-  console.log("You pressed the " + e.target.textContent + " button");
+  //   console.log("You pressed the " + e.target.textContent + " button");
 
   //calls operate if the arrays have been initialized
   if (num1.length > 0 && num2.length > 0) {
@@ -101,7 +103,7 @@ function getOp(e) {
 
   op = e.target.textContent;
 
-  if (op == "%") {
+  if (op == "%" || op == "+/-") {
     operate();
   }
 
@@ -141,14 +143,17 @@ const equalBtn = document.getElementById("equality-btn");
 equalBtn.addEventListener("click", operate);
 
 function operate() {
-  //bug fix
-  //   if (screen.firstChild.textContent != 0 && num2.length > 0) {
   let result = "";
   //   num2 = temp.slice();
   num1 = num1.join("");
   num2 = num2.join("");
+  console.log(num1);
+  console.log(num2);
 
   switch (op) {
+    // case "+/-":
+    //   result = plusMinus(num1);
+    //   break;
     case "/":
       result = divide(num1, num2);
       break;
@@ -172,14 +177,13 @@ function operate() {
   num1 = temp;
   num2 = [];
 
-  console.log("You pressed the = button");
-  console.log(num1);
-  console.log(num2);
+  //   console.log("You pressed the = button");
+  //   console.log(num1);
+  //   console.log(num2);
 
   return temp;
 }
-// }
 
 const plusMinusBtn = document.querySelector("#plus-minus-btn");
 
-plusMinusBtn.addEventListener("click", plusMinus);
+// plusMinusBtn.addEventListener("click", plusMinus);
