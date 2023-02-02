@@ -56,6 +56,7 @@ const acBtn = document
   .addEventListener("click", clearScreen);
 
 /* NUMBERS */
+const zeroBtn = document.querySelector("#zero-btn");
 
 const numBtn = document.querySelectorAll(".number-btn");
 
@@ -64,8 +65,13 @@ numBtn.forEach((btn) => btn.addEventListener("click", getNum));
 function getNum(e) {
   console.log(`You pressed ${e.target.textContent}`);
 
-  //no more than 9 nums on the screen; acts like a loop
+  //bug-fix: pressing 0 leads to leading zero
+  //   if (screen.firstChild.textContent == "0" && e.target.textContent != "0") {
+  //     zeroBtn.removeEventListener("click", getNum);
+  //   }
+
   if (num1.length < 9) {
+    //no more than 9 nums on the screen; acts like a loop
     if (screen.firstChild.textContent == 0) {
       screen.removeChild(screen.firstChild);
     }
