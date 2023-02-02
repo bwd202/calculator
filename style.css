@@ -17,8 +17,8 @@ div {
 #container {
     background-color: black;
     border: 2px red solid;
-    max-width: fit-content;
-    max-height: fit-content;
+    max-width: 250px; /* container won't get bigger than this if you keep adding numbers to the screen  */
+    /* max-height: 419px; */
 }
 
 #container > div { /* versus #container div, which is inherited by all divs, ie. grandchildren */
@@ -35,9 +35,10 @@ div {
 /* SCREEN */
 #screen {
     background-color: black;
-    padding: 40px 15px 10px 10px;
+    padding: 40px 15px 10px 10px; 
     text-align: end;
     font-size: 60px;
+    min-height: 119px; /*prevents div collapse*/
 }
 /* BUTTONS */
 
@@ -61,7 +62,7 @@ div {
     background-color: grey;
 }
 
-.operator-btn {
+.operator-btn, #equality-btn {
     background-color: orange;
 }
 
