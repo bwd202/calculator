@@ -143,45 +143,48 @@ const equalBtn = document.getElementById("equality-btn");
 equalBtn.addEventListener("click", operate);
 
 function operate() {
-  let result = "";
-  //   num2 = temp.slice();
-  num1 = num1.join("");
-  num2 = num2.join("");
-  console.log(num1);
-  console.log(num2);
+  //fixes bug where pressing equal btn blanks the screen
+  if (screen.firstChild.textContent != 0 && num2.length > 0) {
+    let result = "";
+    //   num2 = temp.slice();
+    num1 = num1.join("");
+    num2 = num2.join("");
+    console.log(num1);
+    console.log(num2);
 
-  switch (op) {
-    // case "+/-":
-    //   result = plusMinus(num1);
-    //   break;
-    case "/":
-      result = divide(num1, num2);
-      break;
-    case "%":
-      result = percent(num1);
-      break;
-    case "x":
-      result = multiply(num1, num2);
-      break;
-    case "-":
-      result = subtract(num1, num2);
-      break;
-    case "+":
-      result = add(num1, num2);
+    switch (op) {
+      // case "+/-":
+      //   result = plusMinus(num1);
+      //   break;
+      case "/":
+        result = divide(num1, num2);
+        break;
+      case "%":
+        result = percent(num1);
+        break;
+      case "x":
+        result = multiply(num1, num2);
+        break;
+      case "-":
+        result = subtract(num1, num2);
+        break;
+      case "+":
+        result = add(num1, num2);
+    }
+    screen.textContent = result;
+
+    //saving the result of num1 and num2 in an array
+    temp = result.toString().split("");
+
+    num1 = temp;
+    num2 = [];
+
+    //   console.log("You pressed the = button");
+    //   console.log(num1);
+    //   console.log(num2);
+
+    return temp;
   }
-  screen.textContent = result;
-
-  //saving the result of num1 and num2 in an array
-  temp = result.toString().split("");
-
-  num1 = temp;
-  num2 = [];
-
-  //   console.log("You pressed the = button");
-  //   console.log(num1);
-  //   console.log(num2);
-
-  return temp;
 }
 
 const plusMinusBtn = document.querySelector("#plus-minus-btn");
