@@ -103,7 +103,7 @@ function getOp(e) {
 
   op = e.target.textContent;
 
-  if (op == "%" || op == "+/-") {
+  if (op == "%") {
     operate();
   }
 
