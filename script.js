@@ -152,11 +152,10 @@ function operate() {
   //fixes bug where pressing equal btn blanks the screen
   if (screen.firstChild.textContent != 0 && num2.length > 0) {
     let result = "";
-    //   num2 = temp.slice();
-    num1 = num1.join("");
-    num2 = num2.join("");
-    console.log(num1);
-    console.log(num2);
+    num1 = Number.parseFloat(num1.join(""));
+    num2 = Number.parseFloat(num2.join(""));
+    // console.log(num1);
+    // console.log(num2);
 
     switch (op) {
       // case "+/-":
@@ -177,7 +176,7 @@ function operate() {
       case "+":
         result = add(num1, num2);
     }
-    screen.textContent = result;
+    screen.textContent = Number.parseFloat(result);
 
     //saving the result of num1 and num2 in an array
     temp = result.toString().split("");
