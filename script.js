@@ -163,7 +163,7 @@ function operate() {
       //   result = plusMinus(num1);
       //   break;
       case "/":
-        result = divide(num1, num2);
+        result = divide(num1, num2).toPrecision(9);
         break;
       case "%":
         result = percent(num1);
