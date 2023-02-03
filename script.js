@@ -8,7 +8,7 @@ let op = "";
 function add(a, b) {
   console.log(a);
   console.log(b);
-  return parseInt(a) + parseInt(b);
+  return a + b;
 }
 function plusMinus(a) {
   return a * -1;
@@ -95,7 +95,7 @@ function getNum(e) {
     // console.log(num1);
 
     //show num on the screen
-    screen.textContent = num1.join("");
+    screen.textContent = Number.parseFloat(num1.join(""));
   }
 
   screenLength();
@@ -144,7 +144,7 @@ function getNum2(e) {
     // console.log(num2);
 
     //show num on the screen
-    screen.textContent = num2.join("");
+    screen.textContent = Number.parseFloat(num2.join(""));
   }
 
   screenLength();
@@ -172,8 +172,8 @@ function operate() {
     let result = "";
     num1 = Number.parseFloat(num1.join(""));
     num2 = Number.parseFloat(num2.join(""));
-    // console.log(num1);
-    // console.log(num2);
+    console.log(num1);
+    console.log(num2);
 
     switch (op) {
       // case "+/-":
@@ -186,10 +186,10 @@ function operate() {
         result = percent(num1);
         break;
       case "x":
-        result = multiply(num1, num2).toPrecision(9);
+        result = multiply(num1, num2);
         break;
       case "-":
-        result = subtract(num1, num2).toPrecision(9);
+        result = subtract(num1, num2);
         break;
       case "+":
         result = add(num1, num2);

@@ -2,7 +2,7 @@
 
 BUGS
 
-- period button function
+- period button can be pressed twice (gives NaN)
 - operations involving decimals round up the answer
 - pressing zero at the beginning adds leading zero
 - keep percent from repeating too many times
