@@ -6,6 +6,8 @@ let op = "";
 /* OPERATIONS */
 
 function add(a, b) {
+  console.log(a);
+  console.log(b);
   return parseInt(a) + parseInt(b);
 }
 function plusMinus(a) {
@@ -77,7 +79,7 @@ const numBtn = document.querySelectorAll(".number-btn");
 numBtn.forEach((btn) => btn.addEventListener("click", getNum));
 
 function getNum(e) {
-  console.log(`You pressed ${e.target.textContent}`);
+  //   console.log(`You pressed ${e.target.textContent}`);
 
   //bug-fix: pressing 0 leads to leading zero
   //   if (screen.firstChild.textContent == "0" && e.target.textContent != "0") {
@@ -90,7 +92,7 @@ function getNum(e) {
       screen.removeChild(screen.firstChild);
     }
     num1.push(e.target.textContent);
-    console.log(num1);
+    // console.log(num1);
 
     //show num on the screen
     screen.textContent = num1.join("");
@@ -110,7 +112,7 @@ opBtn.forEach((btn) => {
 });
 
 function getOp(e) {
-  //   console.log("You pressed the " + e.target.textContent + " button");
+  console.log("You pressed the " + e.target.textContent + " button");
 
   //calls operate if the arrays have been initialized
   if (num1.length > 0 && num2.length > 0) {
@@ -132,14 +134,14 @@ function getOp(e) {
 }
 
 function getNum2(e) {
-  console.log(`You pressed ${e.target.textContent}`);
+  //   console.log(`You pressed ${e.target.textContent}`);
 
   resetScreenLength();
 
   if (num2.length < 9) {
     num2.push(e.target.textContent);
 
-    console.log(num2);
+    // console.log(num2);
 
     //show num on the screen
     screen.textContent = num2.join("");
@@ -184,14 +186,15 @@ function operate() {
         result = percent(num1);
         break;
       case "x":
-        result = multiply(num1, num2);
+        result = multiply(num1, num2).toPrecision(9);
         break;
       case "-":
-        result = subtract(num1, num2);
+        result = subtract(num1, num2).toPrecision(9);
         break;
       case "+":
         result = add(num1, num2);
     }
+    console.log(result);
 
     screen.textContent = result;
 
@@ -205,7 +208,7 @@ function operate() {
     num1 = temp;
     num2 = [];
 
-    //   console.log("You pressed the = button");
+    console.log("You pressed the = button");
     //   console.log(num1);
     //   console.log(num2);
 
