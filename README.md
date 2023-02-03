@@ -3,12 +3,12 @@
 BUGS
 
 - period button can be pressed twice (gives NaN)
-- operations involving decimals round up the answer
-- pressing zero at the beginning adds leading zero
+- zero not displayed in front of .
 - keep percent from repeating too many times
 - possible screen overflow with 9 digit numbers
 - pressing 'plus-minus' during number 2 results in wrong math
 - addition with 0
+- not enough right padding on #screen with long numbers
 
 FEATURE SUGGESTIONS
 

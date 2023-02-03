@@ -94,13 +94,11 @@ function getNum(e) {
     num1.push(e.target.textContent);
     // console.log(num1);
 
-    //show num on the screen
+    //show num on the screen, gets rid of leading 0s automatically
     screen.textContent = Number.parseFloat(num1.join(""));
   }
 
   screenLength();
-
-  //   screen.appendChild(document.createTextNode(e.target.textContent));
 }
 
 /* OPERATOR BTNS */
