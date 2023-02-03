@@ -36,14 +36,28 @@ function percent(a) {
   return a / 100;
 }
 
-/* CLEAR BTN */
+/* SCREEN */
 const screen = document.getElementById("screen");
+
+function screenLength() {
+  //keeps screen aspect ratio by compensating for decreased height
+  if (screen.textContent.length > 6) {
+    screen.style.fontSize = "45px";
+    screen.style.paddingTop = "57px";
+  }
+}
+
+function resetScreenLength() {
+  screen.style.fontSize = "60px";
+  screen.style.paddingTop = "40px";
+}
+
+/* CLEAR BTN */
 
 const clearScreen = function () {
   // console.log(screen.textContent);
   screen.textContent = 0;
-  screen.style.fontSize = "60px";
-  screen.style.paddingTop = "40px";
+  resetScreenLength();
   temp = [];
   num1 = [];
   num2 = [];
@@ -80,13 +94,9 @@ function getNum(e) {
 
     //show num on the screen
     screen.textContent = num1.join("");
-
-    if (screen.textContent.length > 6) {
-      screen.style.fontSize = "45px";
-      screen.style.paddingTop = "57px";
-      //keeps screen aspect ratio by compensating for decreased height
-    }
   }
+
+  screenLength();
 
   //   screen.appendChild(document.createTextNode(e.target.textContent));
 }
@@ -123,6 +133,8 @@ function getOp(e) {
 
 function getNum2(e) {
   console.log(`You pressed ${e.target.textContent}`);
+
+  resetScreenLength();
 
   num2.push(e.target.textContent);
 
@@ -176,7 +188,11 @@ function operate() {
       case "+":
         result = add(num1, num2);
     }
-    screen.textContent = Number.parseFloat(result);
+
+    // if() {
+
+    // }
+    screen.textContent = result;
 
     //saving the result of num1 and num2 in an array
     temp = result.toString().split("");
