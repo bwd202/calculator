@@ -136,12 +136,16 @@ function getNum2(e) {
 
   resetScreenLength();
 
-  num2.push(e.target.textContent);
+  if (num2.length < 9) {
+    num2.push(e.target.textContent);
 
-  console.log(num2);
+    console.log(num2);
 
-  //show num on the screen
-  screen.textContent = num2.join("");
+    //show num on the screen
+    screen.textContent = num2.join("");
+  }
+
+  screenLength();
 
   //   if (typeof num2 == "string") {
   //     num2 = [];
@@ -189,10 +193,11 @@ function operate() {
         result = add(num1, num2);
     }
 
-    // if() {
-
-    // }
     screen.textContent = result;
+
+    if (screen.textContent.length > 6) {
+      screenLength();
+    }
 
     //saving the result of num1 and num2 in an array
     temp = result.toString().split("");
