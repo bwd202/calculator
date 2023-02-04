@@ -95,7 +95,7 @@ function getNum(e) {
     // console.log(num1);
 
     //show num on the screen, gets rid of leading 0s automatically
-    screen.textContent = Number.parseFloat(num1.join(""));
+    screen.textContent = num1.join("");
   }
 
   screenLength();
@@ -142,7 +142,7 @@ function getNum2(e) {
     // console.log(num2);
 
     //show num on the screen
-    screen.textContent = Number.parseFloat(num2.join(""));
+    screen.textContent = num2.join("");
   }
 
   screenLength();
