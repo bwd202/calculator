@@ -15,3 +15,4 @@ FEATURE SUGGESTIONS
 - symbol for division
 - keyboard functionality (extra credit)
 - separating commas
+- backspace button
