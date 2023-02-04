@@ -141,6 +141,9 @@ function getNum2(e) {
   resetScreenLength();
 
   if (num2.length < 9) {
+    if (e.target.textContent == "." && num2.length == 0) {
+      num2.push(0);
+    }
     num2.push(e.target.textContent);
 
     // console.log(num2);
