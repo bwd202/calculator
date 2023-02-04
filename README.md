@@ -7,7 +7,6 @@ BUGS
 - keep percent from repeating too many times
 - possible screen overflow with 9 digit numbers
 - pressing 'plus-minus' during number 2 results in wrong math
-- addition with 0
 - not enough right padding on #screen with long numbers
 
 FEATURE SUGGESTIONS

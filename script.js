@@ -166,7 +166,7 @@ equalBtn.addEventListener("click", operate);
 
 function operate() {
   //fixes bug where pressing equal btn blanks the screen
-  if (screen.firstChild.textContent != 0 && num2.length > 0) {
+  if (num1.length > 0 && num2.length > 0) {
     let result = "";
     num1 = Number.parseFloat(num1.join(""));
     num2 = Number.parseFloat(num2.join(""));
