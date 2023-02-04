@@ -91,6 +91,10 @@ function getNum(e) {
     if (screen.firstChild.textContent == 0) {
       screen.removeChild(screen.firstChild);
     }
+
+    if (e.target.textContent == "." && num1.length == 0) {
+      num1.push(0);
+    }
     num1.push(e.target.textContent);
     // console.log(num1);
 
