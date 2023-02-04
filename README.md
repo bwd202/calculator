@@ -2,12 +2,11 @@
 
 BUGS
 
-- period button can be pressed twice (gives NaN)
-- zero not displayed in front of .
+- period button gives NaN when pressed at empty screen or after operate (equal btn)
 - keep percent from repeating too many times
 - possible screen overflow with 9 digit numbers
 - pressing 'plus-minus' during number 2 results in wrong math
-- not enough right padding on #screen with long numbers
+- 0 divided by 0 gives NaN
 
 FEATURE SUGGESTIONS
 
@@ -15,3 +14,5 @@ FEATURE SUGGESTIONS
 - keyboard functionality (extra credit)
 - separating commas
 - backspace button
+- display 0 in front of period for decimals
+- add more padding to the right of screen to make long numbers look better
