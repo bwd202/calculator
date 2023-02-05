@@ -177,6 +177,7 @@ function operate() {
     let result = "";
     num1 = Number.parseFloat(num1.join(""));
     num2 = Number.parseFloat(num2.join(""));
+
     console.log(num1);
     console.log(num2);
 
@@ -201,10 +202,19 @@ function operate() {
     }
     console.log(result);
 
-    screen.textContent = result;
-
-    if (screen.textContent.length > 6) {
-      screenLength();
+    //prevents screen overflow with big numbers
+    if (result > 999999999) {
+      let x = result * 0.1;
+      screen.textContent = x.toPrecision(1);
+    } else if (result.toString().length > 9) {
+      //   console.log("hello");
+      //   screen.style.fontSize = "40px";
+      //   screen.style.paddingTop = "62px";
+      screen.style.fontSize = "45px";
+      screen.style.paddingTop = "57px";
+      screen.textContent = result;
+    } else {
+      screen.textContent = result;
     }
 
     //saving the result of num1 and num2 in an array
