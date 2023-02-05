@@ -174,31 +174,31 @@ equalBtn.addEventListener("click", operate);
 function operate() {
   //fixes bug where pressing equal btn blanks the screen
   if (num1.length > 0 && num2.length > 0) {
-    let result = "";
-    num1 = Number.parseFloat(num1.join(""));
-    num2 = Number.parseFloat(num2.join(""));
+    let result = 0;
+    x = Number.parseFloat(num1.join(""));
+    y = Number.parseFloat(num2.join(""));
 
-    console.log(num1);
-    console.log(num2);
+    console.log(x);
+    console.log(y);
 
     switch (op) {
       // case "+/-":
       //   result = plusMinus(num1);
       //   break;
       case "/":
-        result = divide(num1, num2).toPrecision(9);
+        result = divide(x, y).toPrecision(9);
         break;
       case "%":
-        result = percent(num1);
+        result = percent(x);
         break;
       case "x":
-        result = multiply(num1, num2);
+        result = multiply(x, y);
         break;
       case "-":
-        result = subtract(num1, num2);
+        result = subtract(x, y);
         break;
       case "+":
-        result = add(num1, num2);
+        result = add(x, y);
     }
     console.log(result);
 
