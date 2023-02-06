@@ -10,24 +10,24 @@ function add(a, b) {
   console.log(b);
   return a + b;
 }
-function plusMinus() {
-  if (num1.length > 0) {
-    num1.unshift("-");
-    return (screen.textContent = num1.join(""));
-  }
+// function plusMinus() {
+//   if (num1.length > 0) {
+//     num1.unshift("-");
+//     return (screen.textContent = num1.join(""));
+//   }
 
-  //   let value = parseInt(screen.textContent);
-  //   value *= -1;
-  //   console.log(value);
+//   let value = parseInt(screen.textContent);
+//   value *= -1;
+//   console.log(value);
 
-  //   screen.insertBefore(document.createTextNode("-"), screen.firstChild);
+//   screen.insertBefore(document.createTextNode("-"), screen.firstChild);
 
-  //   let minus = ["-"];
+//   let minus = ["-"];
 
-  //   if (num1.length > 0) {
-  //     num1 = minus.concat(num1);
-  //   }
-}
+//   if (num1.length > 0) {
+//     num1 = minus.concat(num1);
+//   }
+
 function subtract(a, b) {
   return a - b;
 }
@@ -89,10 +89,18 @@ function getNum(e) {
       screen.removeChild(screen.firstChild);
     }
 
+    if (e.target.textContent == "+/-" && num1[0] != "-") {
+      num1.unshift("-");
+    }
+
     if (e.target.textContent == "." && num1.length == 0) {
       num1.push("0");
     }
-    num1.push(e.target.textContent);
+
+    if (e.target.textContent != "+/-") {
+      num1.push(e.target.textContent);
+    }
+
     // console.log(num1);
 
     //show num on the screen, gets rid of leading 0s automatically
@@ -104,9 +112,9 @@ function getNum(e) {
 
 /* OPERATOR BTNS */
 
-const plusMinus2 = document.querySelector("#plus-minus-btn");
+// const plusMinus2 = document.querySelector("#plus-minus-btn");
 
-plusMinus2.addEventListener("click", plusMinus);
+// plusMinus2.addEventListener("click", plusMinus);
 
 const opBtn = document.querySelectorAll(".operator-btn");
 
