@@ -62,6 +62,10 @@ div {
     background-color: grey;
 }
 
+.operator-btn:active, #equality-btn:active {
+    background-color: red;
+}
+
 .operator-btn, #equality-btn {
     background-color: orange;
 }
