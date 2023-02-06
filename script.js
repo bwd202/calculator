@@ -72,7 +72,6 @@ const acBtn = document
   .addEventListener("click", clearScreen);
 
 /* NUMBERS */
-const zeroBtn = document.querySelector("#zero-btn");
 
 const numBtn = document.querySelectorAll(".number-btn");
 
