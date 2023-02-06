@@ -11,9 +11,10 @@ function add(a, b) {
   return a + b;
 }
 function plusMinus() {
-  num1.unshift("-");
-
-  return (screen.textContent = num1.join(""));
+  if (num1.length > 0) {
+    num1.unshift("-");
+    return (screen.textContent = num1.join(""));
+  }
 
   //   let value = parseInt(screen.textContent);
   //   value *= -1;
