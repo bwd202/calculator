@@ -62,8 +62,8 @@ div {
     background-color: grey;
 }
 
-.operator-btn:active, #equality-btn:active {
-    background-color: red;
+#buttons div > div:active {
+    opacity: 0.8;
 }
 
 .operator-btn, #equality-btn {
