@@ -58,7 +58,7 @@ function resetScreenLength() {
 
 const clearScreen = function () {
   // console.log(screen.textContent);
-  screen.textContent = 0;
+  screen.textContent = "0";
   resetScreenLength();
   temp = [];
   num1 = [];
