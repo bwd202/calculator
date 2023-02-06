@@ -10,8 +10,10 @@ function add(a, b) {
   console.log(b);
   return a + b;
 }
-function plusMinus(a) {
-  return a * -1;
+function plusMinus() {
+  num1.unshift("-");
+
+  return (screen.textContent = num1.join(""));
 
   //   let value = parseInt(screen.textContent);
   //   value *= -1;
@@ -100,6 +102,10 @@ function getNum(e) {
 }
 
 /* OPERATOR BTNS */
+
+const plusMinus2 = document.querySelector("#plus-minus-btn");
+
+plusMinus2.addEventListener("click", plusMinus);
 
 const opBtn = document.querySelectorAll(".operator-btn");
 
