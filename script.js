@@ -147,18 +147,6 @@ function getNum2(e) {
   }
 
   screenLength();
-
-  //   if (typeof num2 == "string") {
-  //     num2 = [];
-  //     num2.push(e.target.textContent);
-  //   } else if (typeof num2 == "object") {
-  //     num2.push(e.target.textContent);
-  //     console.log(num2);
-
-  //     screen.textContent = num2.join("");
-  //   }
-
-  //   screen.appendChild(document.createTextNode(e.target.textContent));
 }
 
 const equalBtn = document.getElementById("equality-btn");
