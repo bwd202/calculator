@@ -3,7 +3,6 @@
 BUGS
 
 - keep percent from repeating too many times
-- pressing 'plus-minus' during number 2 results in wrong math
 - 0 divided by 0 gives NaN
 - 0 repeats
 - leading 0
