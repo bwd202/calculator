@@ -80,11 +80,6 @@ numBtn.forEach((btn) => btn.addEventListener("click", getNum));
 function getNum(e) {
   //   console.log(`You pressed ${e.target.textContent}`);
 
-  //bug-fix: pressing 0 leads to leading zero
-  //   if (screen.firstChild.textContent == "0" && e.target.textContent != "0") {
-  //     zeroBtn.removeEventListener("click", getNum);
-  //   }
-
   if (num1.length < 9) {
     //no more than 9 nums on the screen; acts like a loop
     if (screen.firstChild.textContent == 0) {
