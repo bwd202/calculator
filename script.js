@@ -10,23 +10,6 @@ function add(a, b) {
   console.log(b);
   return a + b;
 }
-// function plusMinus() {
-//   if (num1.length > 0) {
-//     num1.unshift("-");
-//     return (screen.textContent = num1.join(""));
-//   }
-
-//   let value = parseInt(screen.textContent);
-//   value *= -1;
-//   console.log(value);
-
-//   screen.insertBefore(document.createTextNode("-"), screen.firstChild);
-
-//   let minus = ["-"];
-
-//   if (num1.length > 0) {
-//     num1 = minus.concat(num1);
-//   }
 
 function subtract(a, b) {
   return a - b;
@@ -112,10 +95,6 @@ function getNum(e) {
 
 /* OPERATOR BTNS */
 
-// const plusMinus2 = document.querySelector("#plus-minus-btn");
-
-// plusMinus2.addEventListener("click", plusMinus);
-
 const opBtn = document.querySelectorAll(".operator-btn");
 
 opBtn.forEach((btn) => {
@@ -135,10 +114,6 @@ function getOp(e) {
   if (op == "%") {
     operate();
   }
-
-  //   num1 = temp.slice(); // BUG??
-
-  //   temp = [];
 
   numBtn.forEach((btn) => btn.removeEventListener("click", getNum));
   numBtn.forEach((btn) => btn.addEventListener("click", getNum2));
@@ -180,16 +155,10 @@ function operate() {
     x = Number.parseFloat(num1.join(""));
     y = Number.parseFloat(num2.join(""));
 
-    // x = Number.parseInt(num1.join(""));
-    // y = Number.parseInt(num2.join(""));
-
     console.log(x);
     console.log(y);
 
     switch (op) {
-      // case "+/-":
-      //   result = plusMinus(num1);
-      //   break;
       case "/":
         result = divide(x, y).toPrecision(9);
         break;
@@ -235,7 +204,3 @@ function operate() {
     return temp;
   }
 }
-
-const plusMinusBtn = document.querySelector("#plus-minus-btn");
-
-// plusMinusBtn.addEventListener("click", plusMinus);
