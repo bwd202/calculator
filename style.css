@@ -1,90 +1,91 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    color: white;
-    font: 20px sans-serif;
-    margin-top: 130px;
+  display: flex;
+  justify-content: center;
+  color: white;
+  font: 20px sans-serif;
+  margin-top: 130px;
 }
 
 div {
-    margin: 10px;
+  margin: 10px;
 }
 
 #container {
-    background-color: black;
-    border: 2px red solid;
-    max-width: 250px; /* container won't get bigger than this if you keep adding numbers to the screen  */
-    /* max-height: 419px; */
+  background-color: black;
+  border: 2px red solid;
+  max-width: 250px; /* container won't get bigger than this if you keep adding numbers to the screen  */
+  /* max-height: 419px; */
 }
 
-#container > div { /* versus #container div, which is inherited by all divs, ie. grandchildren */
-    margin: 0;
+#container > div {
+  /* versus #container div, which is inherited by all divs, ie. grandchildren */
+  margin: 0;
 }
 
 .row {
-    display: flex;
-    justify-content: space-between;
-    /* justify-content: center; */
-    gap: 10px;
-
+  display: flex;
+  justify-content: space-between;
+  /* justify-content: center; */
+  gap: 10px;
 }
 /* SCREEN */
 #screen {
-    background-color: black;
-    padding: 40px 15px 10px 10px; 
-    text-align: end;
-    font-size: 60px;
-    min-height: 119px; /*prevents div collapse*/
+  background-color: black;
+  padding: 40px 15px 10px 10px;
+  text-align: end;
+  font-size: 60px;
+  min-height: 119px; /*prevents div collapse*/
 }
 /* BUTTONS */
 
 .row div {
-    width: 50px;
-    height: 50px;
-    padding: 10px;
-    margin: 0;
-    border-radius: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  margin: 0;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
 }
 
 #first-row {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .number-btn {
-    background-color: grey;
+  background-color: grey;
 }
 
 #buttons div > div:active {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
-.operator-btn, #equality-btn {
-    background-color: orange;
+.operator-btn,
+#equality-btn {
+  background-color: orange;
 }
 
-#ac-btn, #plus-minus-btn, #percent-btn {
-    background-color: lightgray;
-    color: black;
+#ac-btn,
+#plus-minus-btn,
+#percent-btn {
+  background-color: lightgray;
+  color: black;
 }
 
 #plus-minus-btn {
-    padding-left: 12px;
+  padding-left: 12px;
 }
 
-#zero-btn { 
-    flex: 3; /* tweak to improve buttons alignment */
-    padding-left: 20px;
-    display: flex;
-    justify-content: left;
-    /* margin-right: auto; */
+#zero-btn {
+  flex: 3; /* tweak to improve buttons alignment */
+  padding-left: 20px;
+  display: flex;
+  justify-content: left;
+  /* margin-right: auto; */
 }
-
-
